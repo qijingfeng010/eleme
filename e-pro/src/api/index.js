@@ -123,7 +123,7 @@ https://newretail.ele.me/newretail/main/shoplist?address=&channel=supermarket&
 device_id=2AE66BF461724A3DA2D471BD7B618C9C%7C1533554888428&scene_id=0&rule_id=0&
 cat_id=0&scene_type=shop&rn=20&pn=1&user_type=default&fromalipay=0&type=1&
 lng=114.029113&lat=22.609725&city_id=11
-9:接口功能：商超便利页为你精选商品列表数据
+9:接口功能：商品列表及商户信息数据
 参数：
     address=&
     channel=supermarket&
@@ -211,8 +211,22 @@ fromalipay=0&type=1&lng=114.029113&lat=22.609725&city_id=11
 const MARKET_GOODSLIST_DATA_API = "/newretail/main/scenedetail"
 
 /*
-
-14：接口功能：
+https://h5.ele.me/restapi/member/gifts/suggest
+13：接口功能：发现页面限时好礼数据
 参数：
-111
+
 */ 
+
+const GIFTS_DATA_API = "/restapi/member/gifts/suggest"
+
+/*
+https://h5.ele.me/restapi/member/v1/discover?platform=1&block_index=0
+14:接口功能：发现页面上部数据
+参数：
+    platform=1&
+    block_index=0
+*/ 
+
+const GOLD_COIN_SHOPPINGMALL_API = "/restapi/member/v1/discover"
+
+
