@@ -22,16 +22,16 @@ export default {
     }
     #search .iconfont{
         position: absolute;
-        left: 1.17rem;
+        left: 1rem;
         top: 0.07rem;
     }
     input{
         width: 3.55rem;
-        height: 0.3rem;
+        height: 0.38rem;
         background: #fff;
-        border: 1px solid red;
-        margin-left: 0.1rem;
+        margin:0.1rem 0 0.1rem 0;
         padding-left: 1.27rem;
         box-sizing: border-box;
+        border: none
     }
 </style>
