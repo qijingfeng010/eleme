@@ -21,8 +21,6 @@ https://h5.ele.me/restapi/shopping/v3/restaurants?latitude=22.63205&longitude=11
 
 
 const HOME_BANNER_DATA="/restapi/shopping/openapi/entries"
-// const HOME_BANNER_DATA="/restapi/shopping/v3/restaurants"
-
 /*
 https://h5.ele.me/restapi/shopping/v2/foods_page/sift_factors?entry_id=20004689&
 longitude=114.029113&latitude=22.609725&terminal=h5
@@ -241,5 +239,9 @@ https://h5.ele.me/restapi/member/v1/discover?platform=1&block_index=0
 */ 
 
 const GOLD_COIN_SHOPPINGMALL_API = "/restapi/member/v1/discover"
+
+export default{
+    HOME_BANNER_DATA
+}
 
 
