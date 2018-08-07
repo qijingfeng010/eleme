@@ -11,6 +11,19 @@ latitude=22.609725&longitude=114.029113
 const FOODS_API = "/restapi/shopping/v1/sale_list_index"
 
 /*
+首页轮播图数据
+https://h5.ele.me/restapi/shopping/openapi/entries?
+latitude=22.63205&longitude=114.061592&templates[]=main_template&templates[]=favourable_template&templates[]=svip_template&terminal=h5
+
+
+https://h5.ele.me/restapi/shopping/v3/restaurants?latitude=22.63205&longitude=114.061592&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&order_by=1&rank_id=&terminal=h5
+*/ 
+
+
+const HOME_BANNER_DATA="/restapi/shopping/openapi/entries"
+// const HOME_BANNER_DATA="/restapi/shopping/v3/restaurants"
+
+/*
 https://h5.ele.me/restapi/shopping/v2/foods_page/sift_factors?entry_id=20004689&
 longitude=114.029113&latitude=22.609725&terminal=h5
 02：接口功能：美食头部分类导航
