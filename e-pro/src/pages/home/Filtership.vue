@@ -6,6 +6,7 @@
         </div>        
     </div>
     <sort :data="titleData"></sort>
+    <distance></distance>
 </div>
     
     
@@ -15,10 +16,12 @@
 import {getRestaurants} from "@/services/home.js"
 
 import Sort from "./Sort.vue"
+import Distance from "./Distance.vue"
 
 export default {
     components:{
-       Sort
+       Sort,
+       Distance
     },
     data(){
         return{
@@ -39,8 +42,9 @@ export default {
                 // console.log(item.name)
                 this.titleData.push(item.name)
             })
-            console.log(this.titleData)            
+            // console.log(this.titleData)            
         })
+        
     }
 
 }

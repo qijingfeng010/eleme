@@ -38,6 +38,15 @@ const FILTERRESTAURANTS = "/restapi/shopping/v1/restaurants/outside_filter/attri
 
 const FOODS_TOP_NAV_API = "/restapi/shopping/v2/foods_page/sift_factors"
 
+//距离最近
+//https://h5.ele.me/restapi/shopping/v3/restaurants?latitude=22.63205&longitude=114.061592&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&order_by=5&rank_id=&terminal=h5
+
+const DISTANCE ="/restapi/shopping/v3/restaurants"
+
+
+
+
+
 /*
 https://h5.ele.me/restapi/shopping/v1/restaurants/outside_filter/attributes?
 latitude=22.609725&longitude=114.029113&terminal=h5
@@ -96,7 +105,7 @@ const DINNER_KIND_DATA_API = "/restapi/shopping/v2/foods_page/sift_factors"
 /*
 https://h5.ele.me/restapi/shopping/v1/restaurants/filter-bar/attributes?
 latitude=22.609725&longitude=114.029113&terminal=h5
-06:接口功能：满减优惠、配送、发票、保险等数据
+06:接口功能：筛选列表数据
 参数：
     latitude=22.609725&
     longitude=114.029113&
@@ -248,7 +257,9 @@ export default{
     //轮播图
     HOME_BANNER_DATA,
     //过滤商家
-    FILTERRESTAURANTS
+    FILTERRESTAURANTS,
+    //最近距离
+    DISTANCE
 }
 
 

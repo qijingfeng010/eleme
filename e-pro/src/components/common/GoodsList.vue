@@ -1,9 +1,9 @@
 <template>
-<div id="distance">
-    <div v-for="(item,index) in ship" :key="index" @click='btnAction()'>
-           <div class="goods_list">
+    <div class="goods_list">
 		<div class="shopping-img">
-			<img :src='item.imgUrl'>
+			<img src="http://fuss10.elemecdn.com/8/23/ea86022714713ef2363b0a7a0351bpng
+				.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/
+				130x130/" alt="">
 			<div class="small-font brand ">品牌</div>
 		</div>
 		<div class="list_detail">
@@ -60,100 +60,15 @@
 
 		</div>
 	</div>
-    </div>  
-</div>
-
-    
 </template>
 
 <script>
-import {getDistanceData} from "../../services/home.js"
-
-
 export default {
-
-    data(){
-        return{
-                ship:[],
-                imgUrl:[],
-                name:'',
-                rating:'',
-                //保
-                // supports:[],
-                //月消费额
-                num:'',
-                //起送
-                amount:'',
-                //配送费
-                tips:[],
-                //距离
-                distance:'',
-                //配送时间
-                order_lead_time:'',
-                //类别
-                support_tags:'',
-                //满减
-                description:'',
-                //首单
-                attribute:'',
-                //qw
-                abc:"你好"
-        }
-       
-    },
-     methods:{
-          btnAction(){
-              console.log(this.tips)
-          }  
-        },
-//fuss10.elemecdn.com/d/74/7623a2710ad2eb07d76f4fe4a56f5png.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/
-//fuss10.elemecdn.com/5/79/45010f62c74113a24471ec628d166jpegpng?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/  
-   mounted(){
-       getDistanceData().then(result=>{
-           let data1= result.data.items.map(res=>{
-               this.abc='123'
-
-
-                var res=res.restaurant;
-                var str2='?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/';
-                var str1="//fuss10.elemecdn.com/"
-                var path=res.image_path
-              
-                var strF=path.slice(0,1)
-                var strT=path.slice(1,3)
-                var strL=path.slice(3)
-                var a=path.slice(-3)
-                var str=''
-                if(a=='png'){
-                    str=str1+strF+'/'+strT+'/'+strL+'.png'+str2
-                }else{
-                    str=str1+strF+'/'+strT+'/'+strL+'.jpeg'+str2
-                    
-                }
-                this.imgUrl=str
-                this.name=res.name
-                this.rating=res.name
-                // this.supports=res.supports[0].icon_name
-                this.num=res.recent_order_num
-                this.amount=res.float_minimum_order_amount
-                this.tips=res.tips
-                this.distance=res.distance
-                this.time=res.order_lead_time
-                this.tags=res.support_tags
-                this.description=res.activities[1].description
-                this.attribute=res.activities[0].description
-                this.ship=res                 
-         })
-
-       })
-    console.log(this.abc)
-    }
-   
 
 }
 </script>
 
-<style scoped>
+<style>
 .small-font {
 	font-size: 0.12rem;
 

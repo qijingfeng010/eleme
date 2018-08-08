@@ -1,29 +1,35 @@
 <template>
-    <div id="home">
-        <!-- <h1>首页</h1> -->
-        <div class="top">
-            <div class="location" @click="backAction()">
-               <i class="iconfont">&#xe613;</i>
-               <b>{{location}}</b>
-               <i class="iconfont">&#xe666;</i>    
+    <!-- <page> -->
+       <div id="home">
+            <!-- <h1>首页</h1> -->
+            <div class="top">
+                <div class="location" @click="backAction()">
+                <i class="iconfont">&#xe613;</i>
+                <b>{{location}}</b>
+                <i class="iconfont">&#xe666;</i>    
+                </div>
+                
+                <search-inp class="search"></search-inp>
             </div>
-            
-            <search-inp class="search"></search-inp>
+        
+            <Banner :data="bannerData"/>
+
+            <filtership></filtership>
+            <Nav></Nav>
+            <goods-list></goods-list>
+
         </div>
-       
-        <Banner :data="bannerData"/>
-
-        <filtership></filtership>
-        <Nav></Nav>
 
 
-    </div>
+        
+    <!-- </page> --> 
 </template>
 
 <script>
 import SearchInp from "@/components/home/index/SearchInp.vue"
 import Banner from "@/components/home/index/Banner.vue"
 import Filtership from "./Filtership.vue"
+import GoodsList from "@/components/common/GoodsList.vue"
 
 import {getHomeBannerData} from "@/services/home.js"
 
@@ -31,14 +37,13 @@ export default {
     components:{
         SearchInp,
         Banner,
-        Filtership
+        Filtership,
+        GoodsList
     },
     data(){
         return{
            location:'如意楼',
            bannerData:[]
-
-
         }
     },
     methods:{

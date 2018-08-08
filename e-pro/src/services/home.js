@@ -71,3 +71,48 @@ export function getRestaurants(){
         })
     })
 }
+
+//最近距离
+//https://h5.ele.me/restapi/shopping/v3/restaurants?latitude=22.63205&longitude=114.061592&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&order_by=5&rank_id=&terminal=h5
+//
+export function getDistanceData(){
+   return new Promise((resolve,reject)=>{
+       axios.get(API.DISTANCE,{
+           params:{
+            latitude:22.63205,
+            longitude:114.061592,
+            offset:0,
+            limit:8,   
+            extras:['activities','tags'],
+            extra_filters:'home',
+            order_by:5,
+            rank_id:'',     
+            terminal:'h5'
+           }
+       })
+       .then(response=>{                 
+           resolve(response)
+       })
+       .catch(error=>{
+           console.log('请求失败')
+       })
+   })
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
