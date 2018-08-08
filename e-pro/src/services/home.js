@@ -19,18 +19,12 @@ export function getHomeBannerData(){
           params:{
             latitude:22.63205,
             longitude:114.061592,
-            templates:['main_template','favourable_template','svip_template'],
-           
+            templates:['main_template','favourable_template','svip_template'],          
             terminal:'h5'
           }
     
        })
        .then(response=>{
-           /*
-           //fuss10.elemecdn.com/e/89/185f7259ebda19e16123884a60ef2jpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/
-           //fuss10.elemecdn.com/7/d8/a867c870b22bc74c87c348b75528djpeg.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/
-           */
-            console.log(response)
            var str1='//fuss10.elemecdn.com/';
            var str2='.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/'
             let data=response.data[0].entries.map(item=>{
@@ -45,16 +39,35 @@ export function getHomeBannerData(){
                     image:str             
                 }
             })  
-            
-            
-
-         
-            console.log(data)          
+                    
+            // console.log(data)          
             resolve(data);
        })
        .catch(error=>{
            console.log('连接失败')
            console.log(error)
        })
+    })
+}
+
+
+//请求过滤商家的数据
+//https://h5.ele.me/restapi/shopping/v1/restaurants/outside_filter/attributes?latitude=22.63205&longitude=114.061592&terminal=h5
+
+export function getRestaurants(){
+    return new Promise((resolve,reject)=>{
+        axios.get(API.FILTERRESTAURANTS,{
+            params:{
+                latitude:22.63205,
+                longitude:114.061592,
+                terminal:'h5'
+            }
+        })
+        .then(response=>{
+            resolve(response)
+        })
+        .catch(error=>{
+            console.log('连接失败')
+        })
     })
 }

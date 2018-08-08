@@ -2,15 +2,18 @@
     <div id="home">
         <!-- <h1>首页</h1> -->
         <div class="top">
-            <router-link to="/address" class="location">
+            <div class="location" @click="backAction()">
                <i class="iconfont">&#xe613;</i>
-               <b>如意楼</b>
-               <i class="iconfont">&#xe666;</i>
-            </router-link>
-            <search-inp></search-inp>
+               <b>{{location}}</b>
+               <i class="iconfont">&#xe666;</i>    
+            </div>
+            
+            <search-inp class="search"></search-inp>
         </div>
        
         <Banner :data="bannerData"/>
+
+        <filtership></filtership>
         <Nav></Nav>
 
 
@@ -20,20 +23,29 @@
 <script>
 import SearchInp from "@/components/home/index/SearchInp.vue"
 import Banner from "@/components/home/index/Banner.vue"
+import Filtership from "./Filtership.vue"
 
 import {getHomeBannerData} from "@/services/home.js"
 
 export default {
     components:{
         SearchInp,
-        Banner
+        Banner,
+        Filtership
     },
     data(){
         return{
+           location:'如意楼',
            bannerData:[]
 
 
         }
+    },
+    methods:{
+       backAction(){
+           this.$router.push('/address')
+         
+       }
     },
     mounted(){
         
@@ -68,5 +80,6 @@ body,html{
    box-sizing: border-box;
 
 }
+
 
 </style>

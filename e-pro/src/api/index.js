@@ -32,6 +32,10 @@ longitude=114.029113&latitude=22.609725&terminal=h5
     terminal=h5  //
 */
 
+//商家过滤
+
+const FILTERRESTAURANTS = "/restapi/shopping/v1/restaurants/outside_filter/attributes"
+
 const FOODS_TOP_NAV_API = "/restapi/shopping/v2/foods_page/sift_factors"
 
 /*
@@ -241,7 +245,10 @@ https://h5.ele.me/restapi/member/v1/discover?platform=1&block_index=0
 const GOLD_COIN_SHOPPINGMALL_API = "/restapi/member/v1/discover"
 
 export default{
-    HOME_BANNER_DATA
+    //轮播图
+    HOME_BANNER_DATA,
+    //过滤商家
+    FILTERRESTAURANTS
 }
 
 
