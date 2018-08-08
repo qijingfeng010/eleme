@@ -11,10 +11,11 @@ module.exports = {
     assetsSubDirectory: 'static',
     assetsPublicPath: '/',
     proxyTable: {
-      '/restapi':{
-        target:'https://h5.ele.me',
+      "/restapi":{
+        target:"https://h5.ele.me",
         changeOrigin:true
-      }   
+      },
+
     },
 
     // Various Dev Server settings

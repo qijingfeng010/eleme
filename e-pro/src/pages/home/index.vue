@@ -12,7 +12,7 @@
        
         <Banner :data="bannerData"/>
         <Nav></Nav>
-
+        <goods-list></goods-list>
 
     </div>
 </template>
@@ -20,13 +20,15 @@
 <script>
 import SearchInp from "@/components/home/index/SearchInp.vue"
 import Banner from "@/components/home/index/Banner.vue"
+import GoodsList from "@/components/common/GoodsList.vue"
 
 import {getHomeBannerData} from "@/services/home.js"
 
 export default {
     components:{
         SearchInp,
-        Banner
+        Banner,
+        GoodsList
     },
     data(){
         return{
