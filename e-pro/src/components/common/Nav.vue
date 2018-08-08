@@ -28,7 +28,6 @@ export default {
     methods:{
         selectNav(path){
             this.show=path
-            console.log(this.show)
             this.$router.push(path)
         }
     }

@@ -7,11 +7,16 @@ import Home from '@/pages/home'
 import Discover from '@/pages/discover'
 import Order from '@/pages/order'
 import Mine from '@/pages/mine'
+import Address from "@/pages/home/Address.vue"
 
 const routes=[
   {
     path:'/home',
-    component:Home
+    component:Home,
+  },
+  {
+    path:'/address',
+    component:Address
   },
   {
     path:'/discover',
