@@ -25,7 +25,7 @@ export function getHomeBannerData(){
     
        })
        .then(response=>{
-           var str1='//fuss10.elemecdn.com/';
+           var str1='http://fuss10.elemecdn.com/';
            var str2='.jpeg?imageMogr/format/webp/thumbnail/!90x90r/gravity/Center/crop/90x90/'
             let data=response.data[0].entries.map(item=>{
                 var hash=item.image_hash
@@ -90,8 +90,44 @@ export function getDistanceData(){
             terminal:'h5'
            }
        })
-       .then(response=>{                 
-           resolve(response)
+       .then(response=>{  
+           let data= response.data.items.map(res=>{
+                var res=res.restaurant;  
+                console.log(res)            
+                var str2='?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/';
+                var str1="//fuss10.elemecdn.com/"
+                var path=res.image_path                
+                var strF=path.slice(0,1)
+                var strT=path.slice(1,3)
+                var strL=path.slice(3)
+                var a=path.slice(-3)
+                var str=''
+                if(a=='png'){
+                    str=str1+strF+'/'+strT+'/'+strL+'.png'+str2
+                }else{
+                    str=str1+strF+'/'+strT+'/'+strL+'.jpeg'+str2
+                    
+                }
+                return{      
+                    id:res.authentic_id,              
+                    imgUrl:str,
+                    name:res.name,
+                    rating:res.rating,
+                    // supports:res.supports[0][icon_name],
+                    num:res.recent_order_num,
+                    amount:res.float_minimum_order_amount,
+                    tips:res.tips,
+                    distance:res.distance,
+                    time:res.order_lead_time,
+                    tags:res.support_tags,
+                    description:res.activities[1].description,
+                    attribute:res.activities[0].description,
+                    ship:res ,
+                      
+                } 
+           })
+        //    console.log(data)
+           resolve(data)
        })
        .catch(error=>{
            console.log('请求失败')
@@ -99,6 +135,43 @@ export function getDistanceData(){
    })
 }
 
+/*
+
+//                 console.log(res)
+//                 var res=res.restaurant;
+//                 var str2='?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/';
+//                 var str1="//fuss10.elemecdn.com/"
+//                 var path=res.image_path
+              
+//                 var strF=path.slice(0,1)
+//                 var strT=path.slice(1,3)
+//                 var strL=path.slice(3)
+//                 var a=path.slice(-3)
+//                 var str=''
+//                 if(a=='png'){
+//                     str=str1+strF+'/'+strT+'/'+strL+'.png'+str2
+//                 }else{
+//                     str=str1+strF+'/'+strT+'/'+strL+'.jpeg'+str2
+                    
+//                 }
+//                 return{
+//                     imgUrl:str,
+//                     name:res.name,
+//                     rating:res.name,
+//                     supports:res.supports[0].icon_name,
+//                     num:res.recent_order_num,
+//                     amount:res.float_minimum_order_amount,
+//                     tips:res.tips,
+//                     distance:res.distance,
+//                     time:res.order_lead_time,
+//                     tags:res.support_tags,
+//                     description:res.activities[1].description,
+//                     attribute:res.activities[0].description,
+//                     ship:res   
+//                 }                                      
+//          })              
+//            resolve(data)
+*/
 
 
 

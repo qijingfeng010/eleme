@@ -14,12 +14,7 @@ module.exports = {
       "/restapi":{
         target:"https://h5.ele.me",
         changeOrigin:true
-<<<<<<< HEAD
       }
-=======
-      },
-
->>>>>>> 81d3f815e6a8070f969f5cd11eef6ae9e4f70e63
     },
 
     // Various Dev Server settings
