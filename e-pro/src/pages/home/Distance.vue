@@ -26,24 +26,27 @@
 			<div class="delivery_">
 				<ul class="delivery_left">
 					<li class="small-font least">起送￥{{item.amount}}</li>
-					<li class="small-font delivery_cost">配送￥</li>
+					<li class="small-font delivery_cost">{{item.tips}}</li>
 				</ul>
 				<ul class="delivery_right">
 					<li class="small-font distance">{{item.distance}}m</li>
 					<li class="small-font times">{{item.time}}分钟</li>
 				</ul>
 			</div>
-			<div class="store_type">
+			<div class="store_type" >
 				<i class="small-font iconfont store_logo">&#xe615;</i>
-				<span class="small-font sale_type"
-				v-for="(it,index) in item.support_tags" :key="index">
-					<!-- {{it.support_tags[index].text}} -->	
+				<span class="small-font sale_type">
+					{{item.flavors}}	
 			    </span>
 			</div>
 			<div class="promotion">
 				<div class="special_offer">
-					<span class="small-font special_offer_in">满减</span>
-					<span class="small-font special_offer_contain">满39减10，满69减20</span>
+					<span class="small-font special_offer_in">
+					满减
+					</span>
+					<span class="small-font special_offer_contain">
+					满50减5
+					</span>
 					<b class="small-font more_offer">﹀</b>
 				</div>
 				<div class="special_offer">

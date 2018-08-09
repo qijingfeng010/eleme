@@ -108,6 +108,14 @@ export function getDistanceData(){
                     str=str1+strF+'/'+strT+'/'+strL+'.jpeg'+str2
                     
                 }
+                // 处理店铺销售商品类型的数据
+                var flavors = res.flavors;
+                var flavorsName = "";
+                for(var i=0;i<flavors.length;i++){
+                    flavorsName += flavors[i].name;
+                }
+                // 处理优惠活动的数据
+               
                 return{      
                     id:res.authentic_id,              
                     imgUrl:str,
@@ -122,11 +130,14 @@ export function getDistanceData(){
                     tags:res.support_tags,
                     description:res.activities[1].description,
                     attribute:res.activities[0].description,
-                    ship:res ,
-                      
+                    ship:res,
+                    // text:[res.delivery_mode.text ||null]
+                    tips:res.piecewise_agent_fee.tips,
+                    flavors:flavorsName
+        
                 } 
            })
-        //    console.log(data)
+           console.log(data[1].active_tips)
            resolve(data)
        })
        .catch(error=>{
@@ -135,43 +146,8 @@ export function getDistanceData(){
    })
 }
 
-/*
 
-//                 console.log(res)
-//                 var res=res.restaurant;
-//                 var str2='?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/';
-//                 var str1="//fuss10.elemecdn.com/"
-//                 var path=res.image_path
-              
-//                 var strF=path.slice(0,1)
-//                 var strT=path.slice(1,3)
-//                 var strL=path.slice(3)
-//                 var a=path.slice(-3)
-//                 var str=''
-//                 if(a=='png'){
-//                     str=str1+strF+'/'+strT+'/'+strL+'.png'+str2
-//                 }else{
-//                     str=str1+strF+'/'+strT+'/'+strL+'.jpeg'+str2
-                    
-//                 }
-//                 return{
-//                     imgUrl:str,
-//                     name:res.name,
-//                     rating:res.name,
-//                     supports:res.supports[0].icon_name,
-//                     num:res.recent_order_num,
-//                     amount:res.float_minimum_order_amount,
-//                     tips:res.tips,
-//                     distance:res.distance,
-//                     time:res.order_lead_time,
-//                     tags:res.support_tags,
-//                     description:res.activities[1].description,
-//                     attribute:res.activities[0].description,
-//                     ship:res   
-//                 }                                      
-//          })              
-//            resolve(data)
-*/
+
 
 
 
