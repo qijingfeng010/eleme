@@ -1,25 +1,34 @@
 <template>
-    <div id="home">
-        <!-- <h1>首页</h1> -->
-        <div class="top">
-            <router-link to="/address" class="location">
-               <i class="iconfont">&#xe613;</i>
-               <b>如意楼</b>
-               <i class="iconfont">&#xe666;</i>
-            </router-link>
-            <search-inp></search-inp>
-        </div>
-       
-        <Banner :data="bannerData"/>
-        <Nav></Nav>
-        <goods-list></goods-list>
+    <!-- <page> -->
+       <div id="home">
+            <!-- <h1>首页</h1> -->
+            <div class="top">
+                <div class="location" @click="backAction()">
+                <i class="iconfont">&#xe613;</i>
+                <b>{{location}}</b>
+                <i class="iconfont">&#xe666;</i>    
+                </div>
+                
+                <search-inp class="search"></search-inp>
+            </div>
+        
+            <Banner :data="bannerData"/>
 
-    </div>
+            <filtership></filtership>
+            <Nav></Nav>
+            <goods-list></goods-list>
+
+        </div>
+
+
+        
+    <!-- </page> --> 
 </template>
 
 <script>
 import SearchInp from "@/components/home/index/SearchInp.vue"
 import Banner from "@/components/home/index/Banner.vue"
+import Filtership from "./Filtership.vue"
 import GoodsList from "@/components/common/GoodsList.vue"
 
 import {getHomeBannerData} from "@/services/home.js"
@@ -28,14 +37,20 @@ export default {
     components:{
         SearchInp,
         Banner,
+        Filtership,
         GoodsList
     },
     data(){
         return{
+           location:'如意楼',
            bannerData:[]
-
-
         }
+    },
+    methods:{
+       backAction(){
+           this.$router.push('/address')
+         
+       }
     },
     mounted(){
         
@@ -70,5 +85,6 @@ body,html{
    box-sizing: border-box;
 
 }
+
 
 </style>

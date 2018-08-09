@@ -42,7 +42,7 @@ export default {
        background: #fafafa;
        /* background: red; */
        display: flex;
-       position: absolute;
+       position: fixed;
        bottom: 0;
        left: 0
    }

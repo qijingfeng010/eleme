@@ -1,21 +1,21 @@
 <template>
-    <div class="goods_list">
+<div id="distance">
+    <div v-for="(item,index) in distanceData" :key="index">
+           <div class="goods_list">
 		<div class="shopping-img">
-			<img src="http://fuss10.elemecdn.com/8/23/ea86022714713ef2363b0a7a0351bpng
-				.png?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/
-				130x130/" alt="">
+			<img src="item.imgUrl">
 			<div class="small-font brand ">品牌</div>
 		</div>
 		<div class="list_detail">
 			<div>
-				<span class="store_name">一点点（国贸店）</span>
+				<span class="store_name">{{item.name}}</span>
 				<span class="more">...</span>
 			</div>
 			<div class="grade_count">
 				<div class="grade_count_left">
 					<span>☆☆☆☆☆</span>
-					<span class="small-font grade">4.8</span>
-					<span class="small-font sale_count small-font">月售1798</span>
+					<span class="small-font grade">{{item.rating}}</span>
+					<span class="small-font sale_count small-font">月售{{item.num}}</span>
 				</div>
 				<div class="grade_count_right">
 					<span class="small-font on_time">准时达</span>
@@ -25,17 +25,20 @@
 			</div>
 			<div class="delivery_">
 				<ul class="delivery_left">
-					<li class="small-font least">起送￥20</li>
-					<li class="small-font delivery_cost">配送￥5</li>
+					<li class="small-font least">起送￥{{item.amount}}</li>
+					<li class="small-font delivery_cost">配送￥</li>
 				</ul>
 				<ul class="delivery_right">
-					<li class="small-font distance">899m</li>
-					<li class="small-font times">37分钟</li>
+					<li class="small-font distance">{{item.distance}}m</li>
+					<li class="small-font times">{{item.time}}分钟</li>
 				</ul>
 			</div>
 			<div class="store_type">
 				<i class="small-font iconfont store_logo">&#xe615;</i>
-				<span class="small-font sale_type">奶茶果汁</span>
+				<span class="small-font sale_type"
+				v-for="(it,index) in item.support_tags" :key="index">
+					<!-- {{it.support_tags[index].text}} -->	
+			    </span>
 			</div>
 			<div class="promotion">
 				<div class="special_offer">
@@ -60,15 +63,37 @@
 
 		</div>
 	</div>
+    </div>  
+</div>
+
+    
 </template>
 
 <script>
+import {getDistanceData} from "../../services/home.js"
+
+
 export default {
+	data(){
+		return{
+           distanceData:[]
+		}
+		
+	},
+   mounted(){
+	 getDistanceData().then(data=>{
+			this.distanceData = data;
+			console.log(this.distanceData)
+        })
+
+    
+    }
+   
 
 }
 </script>
 
-<style>
+<style scoped>
 .small-font {
 	font-size: 0.12rem;
 
