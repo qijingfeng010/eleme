@@ -3,7 +3,7 @@
     <div v-for="(item,index) in distanceData" :key="index">
            <div class="goods_list">
 		<div class="shopping-img">
-			<img src="item.imgUrl">
+			<img :src="item.imgUrl">
 			<div class="small-font brand ">品牌</div>
 		</div>
 		<div class="list_detail">
@@ -86,8 +86,9 @@ export default {
    mounted(){
 	 getDistanceData().then(data=>{
 			this.distanceData = data;
-			console.log(this.distanceData)
+			// console.log(this.distanceData)
         })
+	
 
     
     }

@@ -40,8 +40,14 @@ export function getHomeBannerData(){
                 }
             })  
                     
-            // console.log(data)          
-            resolve(data);
+            // console.log(data) 
+            var arr=[]
+            var arr1=data.splice(1,10)   
+            var arr2=data
+            arr.push(arr1,arr2)
+            // console.log(arr.length) 
+            // console.log(arr) 
+            resolve(arr);
        })
        .catch(error=>{
            console.log('连接失败')
@@ -74,7 +80,7 @@ export function getRestaurants(){
 
 //最近距离
 //https://h5.ele.me/restapi/shopping/v3/restaurants?latitude=22.63205&longitude=114.061592&offset=0&limit=8&extras[]=activities&extras[]=tags&extra_filters=home&order_by=5&rank_id=&terminal=h5
-//
+
 export function getDistanceData(){
    return new Promise((resolve,reject)=>{
        axios.get(API.DISTANCE,{
@@ -93,7 +99,7 @@ export function getDistanceData(){
        .then(response=>{  
            let data= response.data.items.map(res=>{
                 var res=res.restaurant;  
-                console.log(res)            
+                // console.log(res)            
                 var str2='?imageMogr/format/webp/thumbnail/!130x130r/gravity/Center/crop/130x130/';
                 var str1="//fuss10.elemecdn.com/"
                 var path=res.image_path                
@@ -137,7 +143,6 @@ export function getDistanceData(){
         
                 } 
            })
-           console.log(data[1].active_tips)
            resolve(data)
        })
        .catch(error=>{

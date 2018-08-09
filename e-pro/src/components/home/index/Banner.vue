@@ -2,8 +2,14 @@
 
         <div class="swiper-container">
             <div class="swiper-wrapper">
-                <div class="swiper-slide" v-for="(item,index) in data" :key='index'>
-                    {{item.name}}
+                <div class="swiper-slide list" v-for="(item,index) in message" :key='index'>
+                    <div class="content" v-for="(it,i) in item" :key='i'>
+                        <a href="##" class="food">
+                            <img :src="it.image" :alt="it.name">
+                            <p>{{it.name}}</p>
+                        </a>
+                    </div>
+                   
                 </div>
             </div>
             <!-- 如果需要分页器 -->
@@ -15,18 +21,40 @@
 
 <script>
 
-
+import {getHomeBannerData} from "../../../services/home.js"
 export default {
-    props:{
-        data:Array
+    // props:{
+    //     arr:Array
+    // },
+    data(){
+        return {
+            message:[],
+            
+        }
     },
     methods:{
+             
+       
+ 
 
     },
     mounted(){       
         this.BannerSwiper = new Swiper ('.swiper-container', {
             loop: true
         })
+        getHomeBannerData().then(arr=>{
+            this.message = arr;
+          
+        })
+
+        var mySwiper = new Swiper ('.swiper-container', {
+            loop: true,
+            
+            // 如果需要分页器
+            pagination: '.swiper-pagination',
+
+        })  
+
     },
     updated(){
         this.BannerSwiper.update();
@@ -40,7 +68,27 @@ export default {
 <style scoped>
    .swiper-wrapper{
        width: 100%;
-       height: 1.77rem;
+       height: 100%;
    }
+   .list{
+       width: 100%;
+       height: 100%;
+       display: flex;
+       flex-wrap: wrap
+       
+   }
+   .content{
+       width: 20%;
+       height: 100%;
+    }
+    .content img{
+        width:0.37rem;
+        height: 0.37rem;
+    }
+    .content .food{
+        display: block;
+        text-align: center;
+        padding: 0.1rem 0;
+    }
 
 </style>
