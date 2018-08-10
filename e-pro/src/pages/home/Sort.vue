@@ -1,6 +1,7 @@
 <template>
     <div id="sort">
-         <p v-for="(item,index) in data" :key="index">
+         <p v-for="(item,index) in data" :key="index" 
+         @click="btnAction(item)">
              {{item}}
          </p>
     </div>
@@ -10,6 +11,18 @@
 export default {
     props:{
         data:Array
+    },
+    data(){
+        return{
+            message:''            
+        }
+    },
+    methods:{
+        btnAction(type){
+        let val=type
+        // console.log(type)
+        this.$emit("sendData",val)       
+        }
     },
 
     mounted(){
