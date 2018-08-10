@@ -39,29 +39,28 @@ export default {
     },
     data(){
         return{
-            // message:[
-            //     {title:'综合排序',type:'sort'},
-            //     {title:'距离最近',type:'distance'},
-            //     {title:'品质联盟'},
-            //     {title:'筛选'}
-                
-            // ],
             type:'',
             titleData:[],
             sort: {title:'综合排序',type:'sort'},
             distance:{title:'距离最近',type:'distance'},
             quality:{title:'品质联盟',type:'quality'},
-            filter:{title:'筛选',type:"filter"}
+            filter:{title:'筛选',type:"filter"},
+            a:1
 
       }
     },
     methods:{
+        
         gotoFlag(data){
-            this.type=data
-            console.log(this.type)
+            this.a++
+            if(this.a%2==0){
+               this.type=data
+            }else{
+                this.type=false
+            }          
+            
         },
         testData(...rest){
-            console.log(rest)
             this.sort.title=rest[0]
             this.type=false
             
