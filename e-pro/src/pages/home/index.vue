@@ -1,35 +1,34 @@
 <template>
-    <!-- <page> -->
+    <page>
        <div id="home">
             <!-- <h1>首页</h1> -->
-            <div class="top">
-                <div class="location" @click="backAction()">
-                <i class="iconfont">&#xe613;</i>
-                <b>{{location}}</b>
-                <i class="iconfont">&#xe666;</i>    
-                </div>
-                
-                <search-inp class="search"></search-inp>
-            </div>
-        
-            <Banner :data="bannerData"/>
+                <div class="top">
+                    <div class="location" @click="backAction('/address')">
+                    <i class="iconfont">&#xe613;</i>
+                    <b>{{location}}</b>
+                    <i class="iconfont">&#xe666;</i>    
+                    </div>              
+                    <search-inp class="search"></search-inp>
+                </div>          
+                <Banner :data="bannerData"/>
 
-            <filtership></filtership>
-            <Nav></Nav>
-            <goods-list></goods-list>
+                <filtership></filtership>
+                <Nav></Nav>
+                <!-- <goods-list></goods-list> -->
+            
 
         </div>
 
 
         
-    <!-- </page> --> 
+    </page> 
 </template>
 
 <script>
 import SearchInp from "@/components/home/index/SearchInp.vue"
 import Banner from "@/components/home/index/Banner.vue"
 import Filtership from "./Filtership.vue"
-import GoodsList from "@/components/common/GoodsList.vue"
+// import GoodsList from "@/components/common/GoodsList.vue"
 
 import {getHomeBannerData} from "@/services/home.js"
 
@@ -38,7 +37,7 @@ export default {
         SearchInp,
         Banner,
         Filtership,
-        GoodsList
+        // GoodsList
     },
     data(){
         return{
@@ -47,8 +46,8 @@ export default {
         }
     },
     methods:{
-       backAction(){
-           this.$router.push('/address')
+       backAction(path){
+           this.$router.push(path)
          
        }
     },
@@ -64,10 +63,7 @@ export default {
 </script>
 
 <style scoped>
-body,html{
-    width: 100%;
-    height: 100%;
-}
+
 #home{
     width: 100%;
 
