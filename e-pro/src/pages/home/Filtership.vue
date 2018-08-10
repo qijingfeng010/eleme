@@ -1,11 +1,15 @@
 <template>
 <div>
     <div id="filtership">
-        <div v-for="(item,index) in message" :key="index" class="content">
+        <div v-for="(item,index) in message" :key="index" class="content"
+        @click="gotoFlag(item.type)">
             {{item.title}}
-        </div>        
+        </div>   
+             
     </div>
-    <sort :data="titleData"></sort>
+       
+    <sort :data="titleData" v-if="type=='sort'"></sort>  
+    <distance v-if="type=='distance'"></distance>
     <distance></distance>
 </div>
     
@@ -14,7 +18,6 @@
 
 <script>
 import {getRestaurants} from "@/services/home.js"
-
 import Sort from "./Sort.vue"
 import Distance from "./Distance.vue"
 
@@ -26,14 +29,20 @@ export default {
     data(){
         return{
             message:[
-                {title:'综合排序',path:""},
-                {title:'距离最近'},
+                {title:'综合排序',type:'sort'},
+                {title:'距离最近',type:'distance'},
                 {title:'品质联盟'},
                 {title:'筛选'}
             ],
+            type:[],
             titleData:[]
 
       }
+    },
+    methods:{
+        gotoFlag(type){
+            this.type=type
+        }
     },
 
     mounted(){

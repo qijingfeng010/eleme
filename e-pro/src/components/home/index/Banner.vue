@@ -14,6 +14,8 @@
             </div>
             <!-- 如果需要分页器 -->
             <div class="swiper-pagination"></div>
+
+            
             
         </div>
 
@@ -40,20 +42,21 @@ export default {
     },
     mounted(){       
         this.BannerSwiper = new Swiper ('.swiper-container', {
-            loop: true
+            loop: true,
+            pagination: '.swiper-pagination',            
         })
         getHomeBannerData().then(arr=>{
             this.message = arr;
           
         })
 
-        var mySwiper = new Swiper ('.swiper-container', {
-            loop: true,
+        // var mySwiper = new Swiper ('.swiper-container', {
+        //     loop: true,
             
-            // 如果需要分页器
-            pagination: '.swiper-pagination',
+        //     // 如果需要分页器
+        //     pagination: '.swiper-pagination',
 
-        })  
+        // })  
 
     },
     updated(){
@@ -72,14 +75,14 @@ export default {
    }
    .list{
        width: 100%;
-       height: 100%;
+       height: 50%;
        display: flex;
        flex-wrap: wrap
        
    }
    .content{
        width: 20%;
-       height: 100%;
+       /* height:20%; */
     }
     .content img{
         width:0.37rem;
@@ -90,5 +93,6 @@ export default {
         text-align: center;
         padding: 0.1rem 0;
     }
+
 
 </style>
