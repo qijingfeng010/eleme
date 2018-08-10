@@ -6,10 +6,10 @@
 </template>
 
 <script>
-import Top from "@/components/common/Title.vue"
+import top from "@/components/common/Title.vue"
 export default {
     components:{
-        Top
+        top
     }
 
 }
